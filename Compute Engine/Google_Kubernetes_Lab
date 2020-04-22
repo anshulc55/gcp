@@ -1,0 +1,54 @@
+1. Go to console.cloud.google.com and log in.
+
+2. Go to and enable the Kubernetes Engine API.
+
+3. SetUp Cluster Using Cloud Console UI.
+
+4. SetUp Cluster Using gCloud.
+
+5. Set Project and Deployment Zone.
+
+gcloud config set compute/region REGION
+
+6. Install kubectl
+
+gcloud components install kubectl
+
+7. Create a managed Kubernetes cluster and a default node pool.
+
+gcloud container clusters create \
+  --machine-type n1-standard-2 \
+  --num-nodes 2 \
+  --zone us-central1-c \
+  --cluster-version latest \
+  <CLUSTERNAME>
+
+
+8. To test if your cluster is initialized, run:
+
+kubectl get node
+
+9. Give your account permissions to perform all administrative actions needed.
+
+kubectl create clusterrolebinding cluster-admin-binding \
+  --clusterrole=cluster-admin \
+  --user=<GOOGLE-EMAIL-ACCOUNT>
+
+10. Install An Application Using A Helm Chart
+
+curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get-helm-3 > get_helm.sh
+chmod 700 get_helm.sh
+
+./get_helm.sh
+
+11. Add Bitnami repo-
+
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
+12. Install An Application Using A Helm Chart
+
+helm install redis bitnami/redis
+
+helm install mongodb bitnami/mongodb
+
+helm install odoo bitnami/odoo
