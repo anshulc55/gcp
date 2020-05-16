@@ -9,7 +9,8 @@ TOMCAT_URL=http://us.mirrors.quenda.co/apache/tomcat/tomcat-8/v8.5.54/bin/$TOMCA
 WAR_FILE=whatever.war
 
 sudo apt-get -y install default-jdk
-java -version
+sudo apt-get -y install wget
+sudo apt-get -y install curl
 
 JAVA_HOME="/usr/lib/jvm/default-java"
 echo $JAVA_HOME

@@ -1,0 +1,67 @@
+1. Connect with CLOUD SQL DB
+gcloud sql connect <INSTANCE_NAME> --user=root
+
+2. Create Database.
+create database [databasename];
+
+3. Use Specific DataBase.
+use [db name];
+
+4. List all databases on the sql server.
+show databases;
+
+5. To see all the tables in the db.
+show tables;
+
+6. To see table's field formats.
+describe [table name];
+
+7. To delete a db.
+drop database [database name];
+
+8. To delete a table.
+drop table [table name];
+
+9. Show all data from a table.
+SELECT * FROM [table name];
+
+10. To return columns and column information.
+show columns from [table name];
+
+11. Create the table "products".
+ CREATE TABLE products (
+         productID    INT UNSIGNED  NOT NULL AUTO_INCREMENT,
+         productCode  CHAR(3)       NOT NULL DEFAULT '',
+         name         VARCHAR(30)   NOT NULL DEFAULT '',
+         quantity     INT UNSIGNED  NOT NULL DEFAULT 0,
+         price        DECIMAL(7,2)  NOT NULL DEFAULT 99999.99,
+         PRIMARY KEY  (productID)
+       );
+
+12. Show all the tables to confirm that the "products" table has been created
+SHOW TABLES;
+
+13. Describe the fields (columns) of the "products" table
+DESCRIBE products;
+
+14. Show the complete CREATE TABLE statement used by MySQL to create this table
+SHOW CREATE TABLE products \G
+
+15. Insert a row with all the column values
+INSERT INTO products VALUES (1001, 'PEN', 'Pen Red', 5000, 1.23);
+INSERT INTO products VALUES
+         (NULL, 'PEN', 'Pen Blue',  8000, 1.25),
+         (NULL, 'PEN', 'Pen Black', 2000, 1.25);
+INSERT INTO products (productCode, name, quantity, price) VALUES
+         ('PEC', 'Pencil 2B', 10000, 0.48),
+         ('PEC', 'Pencil 2H', 8000, 0.49);
+INSERT INTO products (productCode, name) VALUES ('PEC', 'Pencil HB');
+
+SELECT * FROM products;
+
+16. Sample MySQL DataSet from github.
+https://github.com/datacharmer/test_db.git
+
+17. Run SQL file on your MySQL Instace.
+gcloud sql connect <INSTANCE_NAME> --user= root < <SQL_FILE_NAME>
+
