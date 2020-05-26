@@ -1,0 +1,18 @@
+imports:
+- path: resourcename.txt
+
+resources:
+- name: {{ imports["resourcename.txt"] }}
+  type: compute.v1.instance
+  properties:
+    zone: us-central1-a
+    machineType: zones/us-central1-a/machineTypes/n1-standard-1
+    disks:
+    - deviceName: boot
+      type: PERSISTENT
+      boot: true
+      autoDelete: true
+      initializeParams:
+        sourceImage: projects/debian-cloud/global/images/family/debian-10
+    networkInterfaces:
+    - network: global/networks/default
