@@ -5,7 +5,7 @@ TOMCAT_WEBAPPS=$TOMCAT/webapps
 TOMCAT_CONFIG=$TOMCAT/conf/server.xml
 TOMCAT_START=$TOMCAT/bin/startup.sh
 TOMCAT_ARCHIVE=$TOMCAT.tar.gz
-TOMCAT_URL=http://us.mirrors.quenda.co/apache/tomcat/tomcat-8/v8.5.54/bin/$TOMCAT_ARCHIVE
+TOMCAT_URL=https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.54/bin/$TOMCAT_ARCHIVE
 WAR_FILE=whatever.war
 
 sudo apt-get -y install default-jdk
